@@ -1,15 +1,22 @@
 
 #Calculo del micro indice de producto(MIPRO)
 
-MIPRO_t.p = function(t,p ){
-  MIPRO_t.p(0,p) = 100 ##Fijo para el 2018
-  X = IPRO_t.p(t,p)*MIPRO_t.p(t-1,p)/100
+MIPRO_t.p = function(datos, t, p ){
+  MIPRO = NULL
+  MIPRO[1] = 100 ##Fijo para el 2018
+  for(i in 1:t){
+    MIPRO[i+1] =IPRO_t.p(datos, i, p)*MIPRO[i]/100
+  }
+  X = MIPRO[t+1]
   return(X)
 }
+##Prueba
+
+MIPRO_t.p(data,1,1)
 
 #Calculo del micro indice de subclase(MISCL)
-MISCL_t.s = function(t,s,p){
-  sum(MIPRO_t.p(t,p)*Wpro_p(p)/Wscl_s(s))
+MISCL_t.s = function(datos, t, s, p){
+  sum(MIPRO_t.p(datos, t, p)*Wpro_p(p)/Wscl_s(s))
 }
 
 ######SE NECESITA GUARDAR PONDERACION DE PRODUCTOS COMO Wpro_p #########
@@ -18,15 +25,16 @@ MISCL_t.s = function(t,s,p){
 
 #Indice de la clase
 
-ISCL_t.s = function(t,s){
-  MISCL_t.s(t,s)/MISCL_t.s(t-1,s)*100
+ISCL_t.s = function(datos, t ,s){
+  MISCL_t.s(datos, t, s)/MISCL_t.s(datos, t-1, s)*100
 }
 
 #Calculo del micro indice de clase (MICLA)
 
 MICLA_t.c = function(t,c){
   
-  sum(MISCL_t.s(t,s)*Wscls(s)/Wcla_c(c))
+  sum(MISCL_t.s(datos, t, s)*Wscls(s)/Wcla_c(c))
 }
+
 
 
