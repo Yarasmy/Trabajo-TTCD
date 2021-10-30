@@ -72,3 +72,4 @@ IPC_t = function(datos,t){
   }
   return(ipc)
 }
+
