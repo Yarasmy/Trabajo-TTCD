@@ -1,13 +1,4 @@
 
-library(readr)
-library(dplyr)
-
-data= read_delim("C:/Users/yaras/OneDrive/Escritorio/Ramos/ttcd/ipc base anual 2018=100/Base anonimizada IPC 2019.csv", 
-                                        delim = "\\", escape_double = FALSE,trim_ws = TRUE)
-Lista_productos= unique(data$Glosa_Producto)
-
-
-
 #Calculo del micro indice de producto(MIPRO)
 
 MIPRO_t.p = function(t,p ){
@@ -34,6 +25,7 @@ ISCL_t.s = function(t,s){
 #Calculo del micro indice de clase (MICLA)
 
 MICLA_t.c = function(t,c){
+  
   sum(MISCL_t.s(t,s)*Wscls(s)/Wcla_c(c))
 }
 
