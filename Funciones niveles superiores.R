@@ -1,5 +1,5 @@
 
-#Calculo del micro indice de producto(MIPRO)#----
+#Calculo del micro indice de producto(MIPRO)#---_-
 
 MIPRO_t.p = function(datos, t, p ){
   MIPRO = NULL
