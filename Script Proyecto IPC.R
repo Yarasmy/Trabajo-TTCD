@@ -1,16 +1,12 @@
 library(readr)
 library(dplyr)
 
-
-
-data = read_delim("ipc base anual 2018/Base anonimizada IPC 2019.csv", 
-                  "\\", escape_double = FALSE, locale = locale(encoding = "ISO-8859-1"), 
+data = read_delim("Base anonimizada IPC 2019.csv",  delim = "\\", 
+                  escape_double = FALSE, 
+                  locale = locale(encoding = "ISO-8859-2"), 
                   trim_ws = TRUE)
-
-diccionario_data = read_delim("ipc base anual 2018/Diccionario datos IPC 2019.csv",
-                              ";", escape_double = FALSE, trim_ws = TRUE)
-
   
+
 Lista_productos = unique(data$Glosa_Producto)
 N = length(Lista_productos)
 ## Encontrando los indices de cada producto
@@ -23,17 +19,3 @@ for(i in 1:N){
   posiciones[[i]] = index
   
 }
-
-posiciones[[7]][[2]]
-
-
-PM_t.v_e(data,0,1,1)
-
-IVE_t.v.e(data,1,1,1)
-
-unique(data$SUBCLASE[posiciones[[100]][[2]]])
-
-IVAR_t.v_p(data,1,1,1)
-
-IPRO_t.p(data,1,1)
-
