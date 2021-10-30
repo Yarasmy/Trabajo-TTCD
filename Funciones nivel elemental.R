@@ -61,5 +61,18 @@ IPRO_t.p = function(datos,t,p){
   return(ipro)
 }
 
+#### Prueba
+
+PM_t.v_e(data,0,1,1)
+
+IVE_t.v.e(data,1,1,1)
+
+unique(data$SUBCLASE[posiciones[[100]][[2]]])
+
+IVAR_t.v_p(data,1,1,1)
+
+IPRO_t.p(data,1,1)
+
+
 
 
