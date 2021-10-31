@@ -3,7 +3,7 @@ library(dplyr)
 
 data = read_delim("Base anonimizada IPC 2019.csv",  delim = "\\", 
                   escape_double = FALSE, 
-                  locale = locale(encoding = "ISO-8859-2"), 
+                  locale = locale(encoding = "ISO-8859-1"), 
                   trim_ws = TRUE)
   
 
