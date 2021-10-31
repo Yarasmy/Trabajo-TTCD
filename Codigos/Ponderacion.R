@@ -18,14 +18,6 @@ ponde = ponderaciones[index2,]
 ponde1= na.omit(ponde)
 
 
-kol = seq(0,3228,12)
-pondera = c()
-for(i in 1:N){
-  
-  pondera = c(pondera,mean(ponde1$Ponderación[(kol[i]+1):kol[i+1]]))
-  
-}
-
 
 pond= c()
 productos= c()
@@ -67,21 +59,25 @@ head(data_sub)
 N=dim(data_sub)[1]
 N
 
-for(i in 1:N){
-  for(j in 1:length(productos)){
-    if(productos[j] == data_sub$Glosa_Producto[i]){
-      data_sub$PONDERACION[i] = pond[j]
-    } 
-  }
-}
-head(data_sub)
-##Recordar que se reajusto
-
 sum(table(data_sub$Glosa_Producto))
 ##Los datos se repiten muchas veces 
 rep = as.numeric(table(data_sub$Glosa_Producto))
 nom_rep =names(table(data_sub$Glosa_Producto))
 
+for(i in 1:N){
+  for(j in 1:length(productos)){
+    if(productos[j] == data_sub$Glosa_Producto[i]){
+      for(k in 1:269){
+        if(data_sub$Glosa_Producto[i] == nom_rep[k]){
+          div=rep[k]
+        }
+      }
+      data_sub$PONDERACION[i] = pond[j]/div
+    } 
+  }
+}
+head(data_sub)
+##Recordar que se reajusto
 
 Wscl= c(0,0,0,0)
 N=dim(data_sub)[1]
@@ -89,13 +85,7 @@ for(i in 1:N){
   ##Son 4 subclases
   for(j in 1:4){
     if(data_sub$SUBCLASE[i] == j){
-      for(k in 1:269){
-        if(data_sub$Glosa_Producto[i] == nom_rep[k]){
-          div=rep[k]
-        }
-      }
-      Wscl[j]= Wscl[j]+data_sub$PONDERACION[i]/div
-      #Para reajustar
+      Wscl[j]= Wscl[j]+data_sub$PONDERACION[i]
     }
   }
 }
