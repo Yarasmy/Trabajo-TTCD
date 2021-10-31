@@ -5,6 +5,7 @@ ponderaciones = read_excel("ipc-xls.xlsx",
 
 
 index2 = c()
+
 for (i in 1:length(Lista_productos)) {
   
   lol = which(Lista_productos[i] == ponderaciones$Glosa)
@@ -26,6 +27,40 @@ for(i in 1:N){
 }
 
 
+pond= c()
+productos= c()
+N=dim(ponde1)[1]
+#aaa= c()
+#mmm= c()
+for(i in 1:N){
+  if(ponde1$Año[i] == 2020){
+    #aaa= c(aaa,ponde1$Año[i])
+    if(ponde1$Mes[i] == 1){
+      #mmm= c(mmm, ponde1$Mes[i])
+      pond= c(pond, ponde1$Ponderación[i])
+      productos= c(productos, ponde1$Glosa[i])
+    }
+  }
+}
+#261
+sum(pond)
+dim(ponde1)
+productos
+
+#5481/261#21
+## comentarios son para comprobar el funcionamiento de la funcion
+
+diferentes = setdiff(Lista_productos, productos)
+diferentes
+
+## 8 elementos sin ponderacion
+
+pond= pond/sum(pond)*100
+Lista_productos=productos
 
 
 
+
+
+data_sub= data[,1:8]
+data_sub= rbind(data_sub, 0)
