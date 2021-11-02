@@ -29,8 +29,8 @@ for(i in 1:29){
 C_C <- ts(Costo_canasta, start = 2019, frequency = 12)
 ####Grafico costo de la canasta basica
 
-plot(C_C, type = "l", lwd = 2, col = "red",
+plot(C_C, type = "l", lwd = 2, col = "red",font.main = 4, family="serif",
      main = "Precio de la canasta basica", xlab = "Fecha", 
      ylab = "En miles de pesos",  xlim = c(2019,2021.5), 
-     ylim = c(70,170), las = 1, 
-)
+     ylim = c(70,170), las = 1)
+
