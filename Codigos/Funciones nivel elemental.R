@@ -7,7 +7,7 @@
 
 PM_t.v_e = function(datos,t,v,e){
   
-  PM = datos %>% filter(FUENTE == e |
+  PM = datos %>% filter(FUENTE == e &
                           VARIEDAD == v)
   mes = 9+t
   dime = dim(PM)[1]
