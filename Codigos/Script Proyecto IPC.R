@@ -9,10 +9,12 @@ data = read_delim("Base anonimizada IPC 2019.csv",  delim = "\\",
 
 Lista_productos = unique(data$Glosa_Producto)
 N = length(Lista_productos)
+
 ## Encontrando los indices de cada producto
 
 posiciones = list()
 index = list()
+
 for(i in 1:N){
   pos = which(Lista_productos[i] == data$Glosa_Producto)
   index = list(Lista_productos[i],pos)
