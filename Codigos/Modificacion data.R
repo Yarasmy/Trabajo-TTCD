@@ -6,12 +6,17 @@ for (k in 1:29) {
   for (i in 1:269){
     ceros= 0
     for (j in 1:length(posiciones[[i]][[2]])) {
-      if(posiciones[[i]][[2]][j] == 0){
+      if(data[posiciones[[i]][[2]][j],k+8] == 0){
         ceros = ceros+1
       }
     }
-    DA[i,1+k] = sum(data[posiciones[[i]][[2]],(k+8)])/(length(posiciones[[i]][[2]])-ceros)     
-  }
+    if(length(posiciones[[i]][[2]])-ceros==0){
+      DA[i,1+k] = 0
+    }
+    else{
+      DA[i,1+k] = sum(data[posiciones[[i]][[2]],(k+8)])/(length(posiciones[[i]][[2]])-ceros)
+      }
+    }
 }
 data3= data.frame(DA)
 a=names(data[9:37])
