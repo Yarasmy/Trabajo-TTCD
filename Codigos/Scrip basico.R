@@ -1,7 +1,8 @@
 library(readr)
 library(dplyr)
+library(fcuk) #Ayuda a ver posibles problemas de tecleo en los comandos
 
-data = read_delim("Base anonimizada IPC 2019.csv",  delim = "\\", 
+data = read_delim("Datos/Base anonimizada IPC 2019.csv",  delim = "\\", 
                   escape_double = FALSE, 
                   locale = locale(encoding = "ISO-8859-1"), 
                   trim_ws = TRUE)

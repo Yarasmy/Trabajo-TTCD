@@ -1,6 +1,6 @@
 
 library(readxl)
-ponderaciones = read_excel("ipc-base-2018-serie-referencial-xls.xlsx", 
+ponderaciones = read_excel("Datos/ipc-base-2018-serie-referencial-xls.xlsx", 
                              sheet = "IPC Base 2018=100", skip = 3)
 
 
@@ -17,6 +17,7 @@ unique(ponde$Glosa)
 ## Ponderadores
 
 ponde = ponde[,1:10]
+
 ponde1 = na.omit(ponde)
 
 pond= c()
@@ -76,21 +77,5 @@ head(data_sub)
 
 ###############################################################################
 
-##Por analizar
-
-Wscl= c(0,0,0,0)
-N=dim(data_sub)[1]
-for(i in 1:N){
-  ##Son 4 subclases
-  for(j in 1:4){
-    if(data_sub$SUBCLASE[i] == j){
-      Wscl[j]= Wscl[j]+data_sub$PONDERACION[i]
-    }
-  }
-}
-Wscl
-sum(Wscl)
-
-###############################################################################
 
 
