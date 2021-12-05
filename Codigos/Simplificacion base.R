@@ -18,6 +18,6 @@ a=names(data[9:37])
 colnames(data3)=c("productos",a[1:29])
 
 
-data3[,2:30] = apply(data3[,2:30],2,as.numeric)
+data3[,2:30] = round(apply(data3[,2:30],2,as.numeric),0)
 
 

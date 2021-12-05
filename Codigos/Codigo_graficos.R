@@ -15,7 +15,7 @@ fechas = seq(from = as.Date("2019-02-01"),
              by="month", length.out=28)
 
 data4 = data.frame(Fecha =fechas,IPC = ipc)
-lines = data.frame(vlines = c(fecha[10],fecha[17],fecha[18],fecha[23],fecha[28]), 
+lines = data.frame(vlines = c(fechas[9],fechas[16],fechas[17],fechas[22],fechas[27]), 
                     labels = c("Estallido Social", "Inicio IFE",
                                "1° Retiro 10%","2° Retiro 10%","3° Retiro de 10%"),
                     stringsAsFactors = FALSE)

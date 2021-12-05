@@ -12,10 +12,10 @@ for(i in 1:269){
     }
   }
   if(t==0){
-    Tipo[i]="Posee datos de precios en todos los periodos"
+    Tipo[i]="Información completa"
   }
   else{
-    Tipo[i]="No posee datos en todos los periodos"
+    Tipo[i]="Información incompleta"
     N_DatosNoCompletos=N_DatosNoCompletos+1
   }
   minimo=min(valores_i)
@@ -24,5 +24,5 @@ for(i in 1:269){
 }
 rango=round(rango,0)
 
-Tabla= data.frame(Producto=Lista_productos, Rango=rango,Tipo=Tipo)
+Tabla= data.frame(Producto=Lista_productos, Rango_Variación_Precio=rango,Tipo=Tipo)
 N_DatosNoCompletos#20
