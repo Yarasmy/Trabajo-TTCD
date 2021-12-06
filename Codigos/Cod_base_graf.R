@@ -106,6 +106,11 @@ for(i in 1:(N+1)){
 
 colnames(data_ipc_graf)
 
+lines = data.frame(vlines = c(fechas[8],fechas[14],fechas[15],fechas[16],fechas[21],fechas[26]), 
+                   labels = c("Estallido Social","Inicio cuarentenas" ,"Inicio IFE",
+                              "1° Retiro 10%","2° Retiro 10%","3° Retiro de 10%"),
+                   stringsAsFactors = FALSE)
+
 
 
 

@@ -29,9 +29,8 @@ shinyServer(function(input, output) {
       geom_line()+
       geom_vline(data = lines, aes(xintercept = vlines),col = c("yellow","blue","green","red","red","red"))+
       geom_text(data = lines, aes(x = vlines, y = c(selectedData()[8]+0.02,selectedData()[14]+0.02,selectedData()[15]+0.02
-                                                    ,selectedData()[16]+0.02,selectedData()[21]+0.02,selectedData()[26])+0.02, label = labels))+
-      labs(title = input$producto,
-           x="Meses",y="IPC Individual")+
+                                                    ,selectedData()[16]+0.02,selectedData()[21]+0.02,selectedData()[26]+0.02), label = labels))+
+      labs(title = input$producto, x="Meses",y="IPC Individual")+
       theme_light()+
       theme(plot.title = element_text(face="bold",size=17),
             plot.subtitle = element_text(face="italic",size=13))+
