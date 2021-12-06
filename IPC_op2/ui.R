@@ -13,7 +13,12 @@ library(DT)
 shinyUI(navbarPage(
   title = 'IPC en la contingencia',
   tabPanel('Inicio', icon=icon("house-user"),
-           fluidRow(p(strong("Introducción"),style="text-align:justify;color:black;background-color:lavender;padding:15px;border-radius:10px"),
+           fluidRow(
+             column(6,div(img(src = "iportada.png", width = "50%", height = "15%"),
+                          style = "text-align: center;")),
+
+             column(6,
+             p(strong("Introducción"),style="text-align:justify;color:black;background-color:lavender;padding:15px;border-radius:10px"),
                           br(),
                           p("Chile enfrento en 2020 una de las peores crisis económicas 
                             de su historia. Esto debido a la crisis social que se inició 
@@ -41,7 +46,7 @@ shinyUI(navbarPage(
                             muestre la variación, principalmente ese año, en los precios de la canasta
                             básica.",
                             style="text-align:justify;color:black;background-color:lavender;padding:15px;border-radius:10px")
-                           )),
+                           ))),
   tabPanel('Productos Canasta',  DT::dataTableOutput('ex1')),
   tabPanel("Caracteristicas productos", DT::dataTableOutput('ex2')),
   tabPanel('Graficos Interactivos')
