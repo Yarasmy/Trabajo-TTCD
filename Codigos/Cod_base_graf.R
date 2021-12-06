@@ -106,9 +106,7 @@ for(i in 1:(N+1)){
 
 colnames(data_ipc_graf)
 
-Grafico_productos=ggplot(data_ipc_graf,aes(y=ARROZ, x=Fecha))+
-  geom_line()
-ggplotly(Grafico_productos)
+
 
 
 

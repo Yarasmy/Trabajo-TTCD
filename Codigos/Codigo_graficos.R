@@ -15,15 +15,15 @@ fechas = seq(from = as.Date("2019-02-01"),
              by="month", length.out=28)
 
 data4 = data.frame(Fecha =fechas,IPC = ipc)
-lines = data.frame(vlines = c(fechas[9],fechas[16],fechas[17],fechas[22],fechas[27]), 
-                    labels = c("Estallido Social", "Inicio IFE",
+lines = data.frame(vlines = c(fechas[8],fechas[14],fechas[15],fechas[16],fechas[21],fechas[26]), 
+                    labels = c("Estallido Social","Inicio cuarentenas" ,"Inicio IFE",
                                "1° Retiro 10%","2° Retiro 10%","3° Retiro de 10%"),
                     stringsAsFactors = FALSE)
 
 Grafico_IPC = ggplot(data = data4,aes(Fecha, IPC))+
   geom_line()+
-  geom_vline(data = lines, aes(xintercept = vlines),col = c("yellow","green","red","red","red"))+
-  geom_text(data = lines, aes(x = vlines, y = c(0.7,1.2,0.7,1.2,0.7), label = labels))+
+  geom_vline(data = lines, aes(xintercept = vlines),col = c("yellow","blue","green","red","red","red"))+
+  geom_text(data = lines, aes(x = vlines, y = c(0.7,1.2,0.7,1.2,0.7,1.2), label = labels))+
   labs(title = "IPC Mensuales",
        x="Meses",y="Valor IPC",
        subtitle = "Data 2019-2021")+
